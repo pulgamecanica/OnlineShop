@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 PRODUCTS_COUNT = 100
 
 MAX_CATEGORIES = 3
@@ -35,15 +27,15 @@ PRODUCTS_COUNT.times do
   num_categories = 1 + rand(MAX_CATEGORIES)
   product.categories = CATEGORIES.sample(num_categories)
 
-  if rand > VARIANTS_WEIGHT
-    num_variants = 1 + rand(MAX_VARIANTS)
-    num_variants.times do
-      product.variants.build(
-        title: rand > VARIANTS_WEIGHT ? Faker::Commerce.color : Faker::Commerce.material,
-        price: Faker::Commerce.price
-      )
-    end
-  end
+  # if rand > VARIANTS_WEIGHT
+  #   num_variants = 1 + rand(MAX_VARIANTS)
+  #   num_variants.times do
+  #     product.variants.build(
+  #       title: rand > VARIANTS_WEIGHT ? Faker::Commerce.color : Faker::Commerce.material,
+  #       price: Faker::Commerce.price
+  #     )
+  #   end
+  # end
 
   product.save!
 
